@@ -1,26 +1,18 @@
 <template>
   <div id="app">
-    <Jumbotron/>
-    <switch-component/>
-    <Footer/>
+    <Navbar />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Jumbotron from "./components/Jumbotron.vue"
-import SwitchComponent from "./components/SwitchComponent.vue"
-import Footer from "./components/Footer.vue"
-
+import Navbar from "./components/Navbar";
 export default {
-  name: 'app',
   components: {
-    Jumbotron,
-    SwitchComponent,
-    Footer
+    Navbar
   }
-}
+};
 </script>
 
 <style>
-
 </style>
