@@ -31,5 +31,13 @@ export default new Router({
 			path: "/Visualize",
 			component: () => import("./components/Visualize.vue")
 		},
+		{
+			path: "/loader",
+			component: () => import("./components/Loader.vue")
+		},
+		{
+			path: "/dataSelect",
+			component: () => import("./components/DataSelect.vue")
+		},
 	]
 });

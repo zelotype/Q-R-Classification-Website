@@ -20,9 +20,10 @@
       </div>
       <div class="row w-full mt-4">
         <div class="w-1/2">
-          <button
+          <b-button
+          @click="dataSelect"
             class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
-          >UPLOAD</button>
+          >UPLOAD</b-button>
         </div>
       </div>
     </div>
@@ -35,7 +36,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    dataSelect(){
+      this.$router.push("/dataSelect");
+    }
+  }
+};
 </script>
 
 <style>
