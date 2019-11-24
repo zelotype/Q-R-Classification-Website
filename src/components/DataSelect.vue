@@ -1,16 +1,16 @@
 <template>
   <div>
-      <div :v-for="col in columns">
-          <button>{{col}}</button>
+      <table class="border w-3/4 mx-auto mt-5 ">
+          <tr class="border text-center">
+              <th v-for="col in columns" :key="col" class="border text0-center" v-on:click="selectCol(col)">{{col}}</th>
+          </tr>
+          <tr v-for="data in dataFromUser" :key="data" class="border">
+              <td v-for="col in columns" :key="col" class="border">{{ data.row[col] }}</td>
+          </tr>
+      </table>
+      <div>
+          {{ dataSelect }}
       </div>
-      <!-- <div class="w-full">
-        <div v-for="data in dataFromUser" :key="data" class="w-1/12">
-            <div v-for="result in data" :key="result">
-                <b-button class="w-full h-16">{{ result }}</b-button>
-            </div>
-
-        </div>
-      </div> -->
   </div>
 </template>
 
@@ -19,23 +19,28 @@ export default {
     data(){
         return{
             dataFromUser: [
-                {"1":{
+                {"row":{
                     "A":"fox", 
                     "B":"delete",
                     "C":"osu",
                     "D":"haru",
                     "F":"dano"}},
-                {"2":{
+                {"row":{
                     "A":"joe", 
                     "B":"kris", 
                     "C":"nami", 
                     "D":"micky", 
                     "F":"panda"}},
-                {"3":{"A":"garfield", "B":"tshirt"}}
+                {"row":{"A":"garfield", "B":"tshirt"}}
             ],
-            column: [
-                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q"
-            ]
+            dataSelect: []
+        }
+    },
+    methods: {
+        "selectCol":function selectCol(col){
+            for (var i in this.dataFromUser){
+                this.dataSelect.push(this.dataFromUser[i].row[col]);
+            }
         }
     },
     computed:{
@@ -43,7 +48,7 @@ export default {
             if(this.dataFromUser.length == 0){
                 return [];
             }
-            return this.column;
+            return Object.keys(this.dataFromUser[0].row)
         }
     }
 }
