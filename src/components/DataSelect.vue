@@ -2,7 +2,7 @@
   <div>
     <div class="w-full row mt-5 ml-32">
       <div>
-        <p class="font-bold mt-1 mr-3">Language:</p>
+        <p class="font-bold mt-1 mr-3">File Language:</p>
       </div>
       <div class="w-1/6">
         <b-form-select
