@@ -12,10 +12,6 @@
         </th>
       </tr>
     </table>
-
-    <div>
-      {{ columnSelect }}
-    </div>
   </div>
 </template>
 
