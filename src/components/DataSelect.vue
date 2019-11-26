@@ -59,8 +59,13 @@ export default {
           return result;
         }, {});
       };
-      var json = groupBy(this.dataFromUser, col);
-      this.dataSelect.push(json);
+      var json = groupBy(this.dataFromUser, col)
+      var dataSelectKey = this.dataSelect.map((k)=> Object.keys(k))
+      console.log(dataSelectKey)
+      if(!(dataSelectKey.includes(col))){
+        console.log(json)
+        this.dataSelect.push(json)
+      }
     }
   },
   computed: {
