@@ -2,14 +2,16 @@
   <div class="mt-20 row w-full">
     <div class="w-1/2 ml-24 col-6 mt-3">
       <div class="row">
-        <h1 class="text-5xl text-bold">Data Visualization</h1>
-        <p class="mt-2">
-          It is a long established fact that a reader will be distracted by the readable
-          <br />
-        </p>
-        <p>
-           content of a page when looking at its layout.The point of using Lorem Ipsum is that<br/>
-           it has a more-or-less normal distribution of letters,as opposed to using 'Content here,content here', making it look like readable English.
+        <h1 class="text-5xl text-bold">Data Visualization</h1><br />
+        
+      </div>
+      <div class="row">
+      <h3 class="text-xl text-semibold text-gray-700 mt-2 th">การแสดงข้อมูลในรูปแบบกราฟ</h3>
+        <p class="mt-2 th">
+           การนำข้อมูลที่คุณอัพโหลดมาทำให้เห็นภาพมากขึ้นด้วยการแสดงผลในรูปแบบกราฟ<br/>
+           ซึ่งคุณสามารถเลือกเฉพาะคอลัมน์/หัวข้อที่ต้องการหรือจะเลือกทั้งหมดก็ได้<br/>
+           อีกทั้งคุณยังสามารถเลือกรูปแบบของกราฟในการแสดงผลได้ด้วยเช่นกัน<br/>
+           ไม่ว่าจะเป็นกราฟแท่งหรือกราฟวงกลม
         </p>
       </div>
       <div class="row w-full">

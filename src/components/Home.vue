@@ -7,11 +7,11 @@
             Requirement Classification
             <br />and Visualization
           </h1>
-          <h3 class="text-xl text-semibold text-gray-500 mt-2">RE PROJECT, ITKMITL</h3>
-          <p class="mt-2">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            <br />Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          <h3 class="text-xl text-semibold text-gray-700 mt-2 th">การจำแนกประเภทและวิเคราะห์ความต้องการ</h3>
+          <p class="mt-2 th">
+            เครื่องมือที่ใช้ในการวิเคราะห์และจำแนกข้อมูลความต้องการ <br>
+            ช่วยคุณเพิ่มประสิทธิภาพในการทำงาน ลดทั้งเวลาและค่าใช้จ่าย<br>
+            รองรับข้อมูลทั้งภาษาไทยและภาษาอังกฤษ
           </p>
         </div>
         <div class="ml-5 mt-4">

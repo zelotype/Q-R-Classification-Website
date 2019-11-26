@@ -2,14 +2,11 @@
   <div class="mt-20 row w-full">
     <div class="w-1/2 ml-24 col-6 mt-3">
       <div class="row">
-        <h1 class="text-5xl text-bold">Requirement Classification</h1>
-        <p class="mt-2">
-          It is a long established fact that a reader will be distracted by the readable
-          <br />
-        </p>
-        <p>
-           content of a page when looking at its layout.The point of using Lorem Ipsum is that<br/>
-           it has a more-or-less normal distribution of letters,as opposed to using 'Content here,content here', making it look like readable English.
+        <h1 class="text-5xl text-bold">Requirement Classification</h1> 
+        <h3 class="text-xl text-semibold text-gray-700 mt-2 th">การจำแนกประเภทความต้องการ </h3>
+        <p class="mt-2 th">
+          จำแนกความต้องการที่คุอัพโหลดเข้ามาออกเป็นประเภทต่างๆ
+          ซึ่งคุณสามารถเลือก<br>เฉพาะคอลัมน์/หัวข้อที่ต้องการ หรือจะทำการแยกประเภททั้งหมดก็ได้
         </p>
       </div>
       <div class="row w-full">
