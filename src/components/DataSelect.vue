@@ -17,7 +17,7 @@
           v-for="col in columns"
           :key="col"
           class="border text-center"
-          v-on:click="selectCol(col);"
+          v-on:click="openModel(col)"
         >
           {{ col }}
         </th>
@@ -34,6 +34,7 @@
         <div class="text-center">
           <b-button
             class="mt-4 bg-blue-500 hover:bg-blue-400 border-b-4 border-blue-700 hover:border-blue-500 rounded w-1/3"
+            v-on:click="selectCol()"
             >Select</b-button
           >
         </div>
@@ -65,22 +66,23 @@ export default {
       selectModel: [
         { value: "tag suggestion", text: "TAG SUGGESTION" },
         { value: "sentimental analysis", text: "SENTIMENTAL ANALYSIS" }
-      ]
+      ],
+      columnName: ""
     };
   },
   methods: {
-    openModel: function openModel(){
+    openModel: function openModel(col){
+      this.columnName = col
       this.$refs["select-model"].show();
     },
-    selectCol: function selectCol(col) {
-      if (!this.columnSelect.includes(col)) {
-        this.openModel()
+    selectCol: function selectCol() {
+      if (!this.columnSelect.includes(this.columnName)) {
         var dataCol = {
-          "name": col,
-          "model": this.selectModel
+          "name": this.columnName,
+          "model": this.model
         }
-        console.log(dataCol)
         this.columnSelect.push(dataCol);
+        this.$refs['select-model'].hide()
       }
     }
   },
