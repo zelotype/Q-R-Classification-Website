@@ -1,5 +1,7 @@
 const state = {
     chartColumnClassify: [],
-    chartColumnVisualize: []
+    chartColumnVisualize: [],
+    columnData: [],
+    responseModel: []
 };
 export default state;

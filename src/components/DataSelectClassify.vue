@@ -5,10 +5,7 @@
         <p class="font-bold mt-1 mr-3">File Language:</p>
       </div>
       <div class="w-1/6">
-        <b-form-select
-          v-model="language"
-          :options="selectLanguage"
-        ></b-form-select>
+        <b-form-select v-model="language" :options="selectLanguage"></b-form-select>
       </div>
     </div>
     <table class="border w-3/4 mx-auto mt-4 h-32">
@@ -18,30 +15,19 @@
           :key="col"
           class="border text-center"
           v-on:click="openModel(col)"
-        >
-          {{ col }}
-        </th>
+        >{{ col }}</th>
       </tr>
     </table>
 
     <div>
-      <b-modal
-        ref="select-model"
-        hide-footer
-        title="Select model and data visual for this column"
-      >
+      <b-modal ref="select-model" hide-footer title="Select model and data visual for this column">
         <b-form-select v-model="model" :options="selectModel"></b-form-select>
-        <b-form-select
-          v-model="graph"
-          :options="selectGraph"
-          class="mt-3"
-        ></b-form-select>
+        <b-form-select v-model="graph" :options="selectGraph" class="mt-3"></b-form-select>
         <div class="text-center">
           <b-button
             class="mt-4 bg-blue-500 hover:bg-blue-400 border-b-4 border-blue-700 hover:border-blue-500 rounded w-1/3"
             v-on:click="selectCol()"
-            >Select</b-button
-          >
+          >Select</b-button>
         </div>
       </b-modal>
     </div>
@@ -50,18 +36,17 @@
       <button
         class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded w-1/3"
         @click="submit()"
-      >
-        Submit
-      </button>
+      >Submit</button>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      columnFromData: ["A", "B", "C", "D", "E", "F", "G"],
+      columnFromData: [],
       columnSelect: [],
       language: "TH",
       selectLanguage: [
@@ -70,8 +55,8 @@ export default {
       ],
       model: "tag suggestion",
       selectModel: [
-        { value: "tag suggestion", text: "TAG SUGGESTION" },
-        { value: "sentimental analysis", text: "SENTIMENTAL ANALYSIS" }
+        { value: "tag", text: "TAG SUGGESTION" },
+        { value: "sentimental", text: "SENTIMENTAL ANALYSIS" }
       ],
       graph: "bar",
       selectGraph: [
@@ -99,12 +84,22 @@ export default {
         };
         this.columnSelect.push(dataCol);
         this.chartSelect.push(chartCol);
-        this.$store.commit('DATA_SAVE_CLASSIFY', this.chartSelect)
+        this.$store.commit("DATA_SAVE_CLASSIFY", this.chartSelect);
         this.$refs["select-model"].hide();
       }
     },
-    submit(){
-      this.$router.push("/result");
+    submit() {
+      axios
+        .post("http://127.0.0.1:8000/calculate/", {
+          language: "th",
+          ColumnArray: this.columnSelect,
+          fileName: "test-th.csv"
+        })
+        .then(Response => {
+          console.log(Response)
+          this.$store.commit("RESPONSE_MODEL", Response.data.column)
+          this.$router.push("/result");
+        });
     }
   },
   computed: {
@@ -114,6 +109,9 @@ export default {
       }
       return this.columnFromData;
     }
+  },
+  mounted() {
+    this.columnFromData = this.$store.state.columnData;
   }
 };
 </script>
