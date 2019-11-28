@@ -43,5 +43,9 @@ export default new Router({
 			path: "/dataSelectVisualize",
 			component: () => import("./components/DataSelectVisualize.vue")
 		},
+		{
+			path: "/result",
+			component: () => import("./components/ResultVisualize.vue")
+		},
 	]
 });

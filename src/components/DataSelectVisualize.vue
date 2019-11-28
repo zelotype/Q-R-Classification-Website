@@ -90,6 +90,7 @@ export default {
         };
         this.chartSelect.push(chartCol);
         this.$refs["select-model"].hide();
+        this.$router.push("/result");
       }
     }
   },

@@ -49,12 +49,10 @@
     <div class="text-center mt-5">
       <button
         class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded w-1/3"
+        @click="submit()"
       >
         Submit
       </button>
-    </div>
-    <div>
-      {{ columnSelect }}
     </div>
   </div>
 </template>
@@ -96,13 +94,17 @@ export default {
           model: this.model
         };
         var chartCol = {
-          name: this.columnName,
-          chart: this.graph
+          model: this.model,
+          type: this.graph
         };
         this.columnSelect.push(dataCol);
         this.chartSelect.push(chartCol);
+        this.$store.commit('DATA_SAVE_CLASSIFY', this.chartSelect)
         this.$refs["select-model"].hide();
       }
+    },
+    submit(){
+      this.$router.push("/result");
     }
   },
   computed: {
