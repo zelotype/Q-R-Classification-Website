@@ -37,7 +37,11 @@ export default new Router({
 		},
 		{
 			path: "/dataSelect",
-			component: () => import("./components/DataSelect.vue")
+			component: () => import("./components/DataSelectClassify.vue")
+		},
+		{
+			path: "/dataSelectVisualize",
+			component: () => import("./components/DataSelectVisualize.vue")
 		},
 	]
 });

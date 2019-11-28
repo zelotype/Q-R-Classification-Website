@@ -22,6 +22,7 @@
         <div class="w-1/2">
           <button
             class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+            @click="dataSelect()"
           >UPLOAD</button>
         </div>
       </div>
@@ -35,7 +36,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    dataSelect(){
+      this.$router.push("/dataSelectVisualize");
+    }
+  }
+};
 </script>
 
 <style>

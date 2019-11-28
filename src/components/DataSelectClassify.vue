@@ -28,9 +28,14 @@
       <b-modal
         ref="select-model"
         hide-footer
-        title="Select model for this column"
+        title="Select model and data visual for this column"
       >
         <b-form-select v-model="model" :options="selectModel"></b-form-select>
+        <b-form-select
+          v-model="graph"
+          :options="selectGraph"
+          class="mt-3"
+        ></b-form-select>
         <div class="text-center">
           <b-button
             class="mt-4 bg-blue-500 hover:bg-blue-400 border-b-4 border-blue-700 hover:border-blue-500 rounded w-1/3"
@@ -47,6 +52,9 @@
       >
         Submit
       </button>
+    </div>
+    <div>
+      {{ columnSelect }}
     </div>
   </div>
 </template>
@@ -67,22 +75,33 @@ export default {
         { value: "tag suggestion", text: "TAG SUGGESTION" },
         { value: "sentimental analysis", text: "SENTIMENTAL ANALYSIS" }
       ],
-      columnName: ""
+      graph: "bar",
+      selectGraph: [
+        { value: "bar", text: "Bar chart" },
+        { value: "pie", text: "Pie chart" }
+      ],
+      columnName: "",
+      chartSelect: []
     };
   },
   methods: {
-    openModel: function openModel(col){
-      this.columnName = col
+    openModel: function openModel(col) {
+      this.columnName = col;
       this.$refs["select-model"].show();
     },
     selectCol: function selectCol() {
       if (!this.columnSelect.includes(this.columnName)) {
         var dataCol = {
-          "name": this.columnName,
-          "model": this.model
-        }
+          name: this.columnName,
+          model: this.model
+        };
+        var chartCol = {
+          name: this.columnName,
+          chart: this.graph
+        };
         this.columnSelect.push(dataCol);
-        this.$refs['select-model'].hide()
+        this.chartSelect.push(chartCol);
+        this.$refs["select-model"].hide();
       }
     }
   },
